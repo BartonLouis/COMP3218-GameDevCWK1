@@ -942,6 +942,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1025652765}
   - component: {fileID: 1025652766}
+  - component: {fileID: 1025652767}
   m_Layer: 5
   m_Name: QuestBox
   m_TagString: Untagged
@@ -968,7 +969,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 380.11, y: 113}
+  m_AnchoredPosition: {x: 380.11, y: 115}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1025652766
@@ -986,6 +987,27 @@ MonoBehaviour:
   questName: {fileID: 561310332}
   goalPanel: {fileID: 54492150}
   goalPrefab: {fileID: 3854708992593769182, guid: 49b6c1b9c67932d4c96c8aebbe8c4c4a, type: 3}
+  animator: {fileID: 1025652767}
+--- !u!95 &1025652767
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025652764}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1f7d3768b6f74364991fc016353cac67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1048883741 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5268806474921237694, guid: e2fc2a718b9e4c34cad183ed3b66fe68, type: 3}
