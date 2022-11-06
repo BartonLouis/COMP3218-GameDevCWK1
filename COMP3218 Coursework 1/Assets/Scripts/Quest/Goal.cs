@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Goal
 {
@@ -9,6 +10,8 @@ public class Goal
     public bool Completed;
     public int RequiredAmount;
     public int CurrentAmount;
+
+    public event Action goalCompleted;
 
     public virtual void Init() {
     }
@@ -21,6 +24,7 @@ public class Goal
 
     public void Complete() {
         Completed = true;
+        goalCompleted();
         Debug.Log("Completed goal " + Description);
         Quest.CheckGoals();
     }

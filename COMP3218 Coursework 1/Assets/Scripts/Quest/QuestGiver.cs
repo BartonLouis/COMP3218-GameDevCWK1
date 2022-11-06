@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class QuestGiver : MonoBehaviour
 {
-    public GameObject Quests;
     public string QuestType;
+    [SerializeField]
+    private GameObject Quests;
     public Quest Quest;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        AssignQuest();
-    }
 
     public void AssignQuest() {
+        Debug.Log("Assigning Quest");
         Quest = (Quest)Quests.AddComponent(System.Type.GetType(QuestType));
+        QuestBoxManager.current.SetQuest(Quest);
     }
 }

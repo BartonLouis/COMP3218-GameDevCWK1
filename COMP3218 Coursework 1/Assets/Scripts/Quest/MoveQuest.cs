@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveQuest : Quest
 {
     // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         Debug.Log("Creating Quest");
         QuestId = 0;
         Name = "Moving Basics";
