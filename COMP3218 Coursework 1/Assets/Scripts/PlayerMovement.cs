@@ -12,16 +12,33 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 footOffset = new Vector3(0, 0.5f, 0);
     // Start is called before the first frame update
 
+    public bool hasKey = false;
+    private int numberPulling = 0;
+
+    public void giveKey() {
+        hasKey = true;
+    }
+
+    public bool carryingKey() {
+        return hasKey;
+    }
     public void Start() {
         speed = defaultSpeed;   
     }
 
     public void SetSpeed(float speed) {
+        numberPulling++;
+        Debug.Log("Setting speed");
         this.speed = speed;
     }
 
     public void UnsetSpeed() {
-        this.speed = defaultSpeed;
+        numberPulling--;
+        Debug.Log(numberPulling);
+        if (numberPulling == 0) {
+            this.speed = defaultSpeed;
+            Debug.Log("Unsetting speed!");
+        }
     }
     // Update is called once per frame
     void Update()

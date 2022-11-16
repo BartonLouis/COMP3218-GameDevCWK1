@@ -30,11 +30,11 @@ public class PushableObject : MonoBehaviour
     }
 
     public void Update() {
-        if (canBePulled & Input.GetKey(KeyCode.Space)) {
+        if (canBePulled && Input.GetKey(KeyCode.Space) && !beingPulled) {
             beingPulled = true;
             Player.SetSpeed(moveSpeed);
             lineRenderer.enabled = true;
-        } else {
+        } else if (beingPulled && (!Input.GetKey(KeyCode.Space) || !canBePulled)) {
             stopPulling();
         }
     }
