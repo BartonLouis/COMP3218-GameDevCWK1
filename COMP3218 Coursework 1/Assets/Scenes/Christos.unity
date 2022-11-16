@@ -8091,12 +8091,12 @@ PrefabInstance:
     - target: {fileID: 7575677449075756561, guid: 5b5b50de972f56844b41db25f79444f8,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 5
+      value: 4.89
       objectReference: {fileID: 0}
     - target: {fileID: 7575677449075756561, guid: 5b5b50de972f56844b41db25f79444f8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -4.125
+      value: -2.85
       objectReference: {fileID: 0}
     - target: {fileID: 7575677449075756561, guid: 5b5b50de972f56844b41db25f79444f8,
         type: 3}
@@ -9886,7 +9886,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7, y: 1.88}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!212 &1295967070
 SpriteRenderer:
@@ -11409,12 +11409,12 @@ PrefabInstance:
     - target: {fileID: 7575677449075756561, guid: 5b5b50de972f56844b41db25f79444f8,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 5
+      value: 4.51
       objectReference: {fileID: 0}
     - target: {fileID: 7575677449075756561, guid: 5b5b50de972f56844b41db25f79444f8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.8750001
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 7575677449075756561, guid: 5b5b50de972f56844b41db25f79444f8,
         type: 3}
