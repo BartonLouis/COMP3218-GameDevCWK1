@@ -4,20 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ChestController : MonoBehaviour
+public class Chest : MonoBehaviour
 {
-    private bool open = false;
-    private bool canBeOpened = false;
 
 
     public Animator animator;
-    public PlayerMovement player;
     public TextMeshProUGUI pickedUpKeyText;
     public int timeToDisplay = 3;
+
+    private Player player;
+    private bool open = false;
+    private bool canBeOpened = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = Player.current;
         pickedUpKeyText.enabled = false;
     }
 

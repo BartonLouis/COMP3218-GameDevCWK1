@@ -33,7 +33,7 @@ public class AlterController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag == "PushableObject") {
+        if (collision.tag == "PushableObject" && pushable == null) {
             pushable = collision.GetComponent<PushableObject>();
             pushable.setGoal(this);
         }

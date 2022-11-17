@@ -5,36 +5,50 @@ using UnityEngine;
 public class PushableObject : MonoBehaviour
 {
 
-    public bool canBePulled = false;
-    public bool beingPulled = false;
-    public PlayerMovement Player;
     public Vector3 baseOffset = new Vector3(0, 0.5f, 0);
     public float moveSpeed = 3;
     public LineRenderer lineRenderer;
-    public AlterController goal;
 
+    private Player player;
+    private AlterController goal;
+    private bool canBePulled = false;
+    private bool beingPulled = false;
+
+    private void Start() {
+        player = Player.current;
+    }
 
     public void OnTriggerEnter2D(Collider2D collision) {
-        canBePulled = true;
+        if (collision.tag == "Player") {
+            canBePulled = true;
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision) {
-        canBePulled = false;
-        stopPulling();
+        if (collision.tag == "Player") {
+            canBePulled = false;
+            if (beingPulled) {
+                stopPulling();
+            }
+        }
     }
 
     private void stopPulling() {
         beingPulled = false;
-        Player.UnsetSpeed();
+        player.UnsetSpeed();
         lineRenderer.enabled = false;
+    }
+
+    private void startPulling() {
+        beingPulled = true;
+        player.SetSpeed(moveSpeed);
+        lineRenderer.enabled = true;
     }
 
     public void Update() {
         if (canBePulled && Input.GetKey(KeyCode.Space) && !beingPulled) {
-            beingPulled = true;
-            Player.SetSpeed(moveSpeed);
-            lineRenderer.enabled = true;
-        } else if (beingPulled && (!Input.GetKey(KeyCode.Space) || !canBePulled)) {
+            startPulling();
+        } else if (beingPulled && Input.GetKeyUp(KeyCode.Space)) {
             stopPulling();
         }
     }
@@ -42,9 +56,9 @@ public class PushableObject : MonoBehaviour
     public void FixedUpdate() {
         if (beingPulled) {
             // move the block to still be attached to the player
-            float distance = (Player.transform.position - Player.footOffset - this.transform.position - baseOffset).magnitude;
+            float distance = (player.transform.position - player.footOffset - this.transform.position - baseOffset).magnitude;
             if (distance > 1.4) {
-                this.transform.position += (Player.transform.position - Player.footOffset - this.transform.position - baseOffset).normalized * moveSpeed * Time.deltaTime;
+                this.transform.position += (player.transform.position - player.footOffset - this.transform.position - baseOffset).normalized * moveSpeed * Time.deltaTime;
             }
         }
         if (goal != null) {

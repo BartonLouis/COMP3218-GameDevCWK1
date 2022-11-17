@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class RopeScript : MonoBehaviour
 {
-    public PlayerMovement player;
+    private Player player;
     public PushableObject pushable;
     public LineRenderer lineRenderer;
     // Start is called before the first frame update
     void Start()
     {
+        player = Player.current;
         lineRenderer.enabled = false;
     }
 
