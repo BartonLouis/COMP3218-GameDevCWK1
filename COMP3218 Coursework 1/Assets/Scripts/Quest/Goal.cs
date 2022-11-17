@@ -12,20 +12,32 @@ public class Goal
     public int CurrentAmount;
 
     public event Action goalCompleted;
+    public event Action goalUncompleted;
 
     public virtual void Init() {
+    }
+
+    public virtual void OnDestroy() {
     }
 
     public void Evaluate() {
         if (CurrentAmount >= RequiredAmount) {
             Complete();
         }
+        if (Completed && CurrentAmount < RequiredAmount) {
+            UnComplete();
+        }
     }
 
     public void Complete() {
         Completed = true;
         goalCompleted();
-        Debug.Log("Completed goal " + Description);
+        Quest.CheckGoals();
+    }
+
+    public void UnComplete() {
+        Completed = false;
+        goalUncompleted();
         Quest.CheckGoals();
     }
 

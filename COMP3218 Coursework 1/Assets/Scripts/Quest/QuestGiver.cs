@@ -8,11 +8,16 @@ public class QuestGiver : MonoBehaviour
     [SerializeField]
     private GameObject Quests;
     public Quest Quest;
+    private bool given = false;
 
 
     public void AssignQuest() {
         Debug.Log("Assigning Quest");
-        Quest = (Quest)Quests.AddComponent(System.Type.GetType(QuestType));
-        QuestBoxManager.current.SetQuest(Quest);
+        if (!given) {
+            Destroy(Quests.GetComponent<Quest>());
+            Quest = (Quest)Quests.AddComponent(System.Type.GetType(QuestType));
+            QuestBoxManager.current.SetQuest(Quest);
+            given = true;
+        }
     }
 }

@@ -9,7 +9,8 @@ public class Condition
     {
         AlterCondition,
         KeyCondition,
-        TurnWheelCondition
+        TurnWheelCondition,
+        QuestCondition
     }
     public ConditionType conditionType;
     public bool complete = false;
@@ -25,6 +26,8 @@ public class Condition
             GameEvents.current.KeyPickedUp += pickedUpKey;
         } else if (conditionType == ConditionType.TurnWheelCondition) {
             GameEvents.current.TurnWheelRotated += wheelRotated;
+        } else if (conditionType == ConditionType.QuestCondition) {
+            GameEvents.current.UserCompletesQuest += QuestCompleted;
         }
     }
 
@@ -64,6 +67,12 @@ public class Condition
             } else if ((intAngle < 0 || intAngle > maxAngle) && complete) {
                 Uncomplete();
             }
+        }
+    }
+
+    public void QuestCompleted(int questID) {
+        if (questID == id) {
+            Complete();
         }
     }
 

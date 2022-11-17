@@ -37,6 +37,7 @@ public class Chest : MonoBehaviour
         animator.SetBool("Open", true);
         player.giveKey();
         pickedUpKeyText.enabled = true;
+        GameEvents.current.PickedUpKey();
         StartCoroutine(DisableText());
     }
 
