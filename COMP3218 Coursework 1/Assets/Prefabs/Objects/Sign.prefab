@@ -159,7 +159,7 @@ MonoBehaviour:
     - Here, we have all the elements which could be included in a normal level.
     - This includes movable Blocks, Chests and (eventually) a turnstile!
     - '(We haven''t got round to making that bit yet) :( '
-  questGiver: {fileID: 0}
+  questGiver: {fileID: 8797130270454992048}
 --- !u!114 &8797130270454992048
 MonoBehaviour:
   m_ObjectHideFlags: 0

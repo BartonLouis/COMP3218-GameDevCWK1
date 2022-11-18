@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AlterController : MonoBehaviour
 {
+    public List<PushableObject> queue = new List<PushableObject>();
     public PushableObject pushable;
     public Vector3 offset = new Vector3(0, 1.12f, 0);
     public RuneController[] runes;
@@ -28,7 +29,11 @@ public class AlterController : MonoBehaviour
                 foreach (RuneController rune in runes) {
                     rune.Deactivate();
                 }
-            } 
+            }
+        } else if (queue.Count > 0) {
+            pushable = queue[0];
+            queue.RemoveAt(0);
+            pushable.setGoal(this);
         }
     }
 
@@ -36,13 +41,19 @@ public class AlterController : MonoBehaviour
         if (collision.tag == "PushableObject" && pushable == null) {
             pushable = collision.GetComponent<PushableObject>();
             pushable.setGoal(this);
+        } else if (collision.tag == "PushableObject") {
+            queue.Add(collision.GetComponent<PushableObject>());
         }
     }
+
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (pushable != null) {
             pushable.removeGoal();
             pushable = null;
+        }
+        if (queue.Contains(collision.GetComponent<PushableObject>())) {
+            queue.Remove(collision.GetComponent<PushableObject>());
         }
     }
 }
