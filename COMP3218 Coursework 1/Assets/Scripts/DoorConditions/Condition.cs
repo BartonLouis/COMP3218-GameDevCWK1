@@ -17,6 +17,7 @@ public class Condition
     public int id = 0;
     public int expectedAngle = 0;
     public int range = 0;
+    private bool canBeOpened = false;
 
     public virtual void Setup() {
         if (conditionType == ConditionType.AlterCondition) {
@@ -39,6 +40,11 @@ public class Condition
         complete = false;
     }
 
+    public void Interacted() {
+        if (conditionType == ConditionType.KeyCondition && canBeOpened) {
+            Complete();
+        }
+    }
 
     public void alterActivated(AlterController alter) {
         if (alter.ID == id) {
@@ -53,8 +59,9 @@ public class Condition
     }
 
     public void pickedUpKey() {
-        Complete();
+        canBeOpened = true;
     }
+
 
     public void wheelRotated(int wheelID, float angle) {
         if (wheelID == id) {

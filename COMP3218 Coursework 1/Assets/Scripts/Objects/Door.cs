@@ -12,6 +12,7 @@ public class Door : MonoBehaviour
 
     private Animator animator;
     private bool open = false;
+    private bool canBeInteracted = false;
 
     // Start is called before the first frame update
     void Start() {
@@ -21,8 +22,25 @@ public class Door : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("Player")) {
+            canBeInteracted = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.CompareTag("Player")) {
+            canBeInteracted = false;
+        }
+    }
+
     // Update is called once per frame
     void Update() {
+        if (canBeInteracted && Input.GetKeyDown(KeyCode.E)) {
+            foreach (Condition c in conditions) {
+                c.Interacted();
+            }
+        }
         if (!open) {
             bool complete = true;
             foreach (Condition c in conditions) {
