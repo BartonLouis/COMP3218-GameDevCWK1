@@ -8,8 +8,9 @@ public class Door : MonoBehaviour
     [SerializeField]
     public Condition[] conditions;
     public int ID = 0;
+    public bool allRequirements = true;
 
-
+    public BoxCollider2D collider2;
     private Animator animator;
     private bool open = false;
     private bool canBeInteracted = false;
@@ -42,24 +43,40 @@ public class Door : MonoBehaviour
             }
         }
         if (!open) {
-            bool complete = true;
-            foreach (Condition c in conditions) {
-                if (!c.complete) {
-                    complete = false;
+            if (allRequirements) {
+                bool complete = true;
+                foreach (Condition c in conditions) {
+                    if (!c.complete) {
+                        complete = false;
+                    }
                 }
-            }
-            if (complete) {
-                Open();
+                if (complete) {
+                    Open();
+                }
+            } else {
+                foreach (Condition c in conditions) {
+                    if (c.complete) {
+                        Open();
+                    }
+                }
             }
         } else {
-            bool complete = true;
-            foreach (Condition c in conditions) {
-                if (!c.complete) {
-                    complete = false;
+            if (allRequirements) {
+                foreach (Condition c in conditions) {
+                    if (!c.complete) {
+                        Close();
+                    }
                 }
-            }
-            if (!complete) {
-                Close();
+            } else {
+                bool allIncomlete = true;
+                foreach (Condition c in conditions) {
+                    if (c.complete) {
+                        allIncomlete = false;
+                    }
+                }
+                if (allIncomlete) {
+                    Close();
+                }
             }
         }
     }
@@ -69,7 +86,7 @@ public class Door : MonoBehaviour
         open = true;
         animator.SetBool("Open", true);
         GameEvents.current.OpenDoor(ID);
-        GetComponent<BoxCollider2D>().enabled = false;
+        collider2.enabled = false;
     }
 
     public void Close() {
@@ -77,6 +94,6 @@ public class Door : MonoBehaviour
         open = false;
         animator.SetBool("Open", false);
         GameEvents.current.CloseDoor(ID);
-        GetComponent<BoxCollider2D>().enabled = true;
+        collider2.enabled = true;
     }
 }

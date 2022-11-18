@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300158, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -138,6 +138,8 @@ MonoBehaviour:
     expectedAngle: 180
     range: 5
   ID: 0
+  allRequirements: 1
+  collider2: {fileID: 1966848633348529817}
 --- !u!61 &1966848633348529817
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour
 {
     public TextMeshProUGUI LevelCompleteText;
     public int timeToDisplay = 3;
+    public string nextLevel = "MainMenu";
 
     private void Start() {
         LevelCompleteText.enabled = false;
@@ -21,5 +23,6 @@ public class LevelComplete : MonoBehaviour
     IEnumerator DisableText() {
         yield return new WaitForSecondsRealtime(timeToDisplay);
         LevelCompleteText.enabled = false;
+        SceneManager.LoadScene(nextLevel);
     }
 }
