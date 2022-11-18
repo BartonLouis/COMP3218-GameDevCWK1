@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7573142612645906722}
   - component: {fileID: 7573142612645906721}
   - component: {fileID: 7573142612645906720}
-  - component: {fileID: 7573142612645906727}
   - component: {fileID: 7573142612645906723}
+  - component: {fileID: 7573142612645906727}
+  - component: {fileID: 8797130270454992048}
   m_Layer: 0
   m_Name: Sign
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b52a57bea9b6a47e096e15fd1bbe2fb0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -113,25 +114,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.4}
   m_EdgeRadius: 0
---- !u!114 &7573142612645906727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7573142612645906726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf3d5915dcb47194fbda6d3e78e774e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: Just a random Sign
-    sentences:
-    - Welcome to our Demo level!
-    - Here, we have all the elements which could be included in a normal level.
-    - This includes movable Blocks, Chests and (eventually) a turnstile!
-    - '(We haven''t got round to making that bit yet) :( '
 --- !u!61 &7573142612645906723
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -158,3 +140,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.07, y: 0.11}
   m_EdgeRadius: 0
+--- !u!114 &7573142612645906727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7573142612645906726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf3d5915dcb47194fbda6d3e78e774e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Just a random Sign
+    sentences:
+    - Welcome to our Demo level!
+    - Here, we have all the elements which could be included in a normal level.
+    - This includes movable Blocks, Chests and (eventually) a turnstile!
+    - '(We haven''t got round to making that bit yet) :( '
+  questGiver: {fileID: 0}
+--- !u!114 &8797130270454992048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7573142612645906726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17657c6722e999744805afbef62b483e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestType: 
+  Quests: {fileID: 0}
+  Quest: {fileID: 0}

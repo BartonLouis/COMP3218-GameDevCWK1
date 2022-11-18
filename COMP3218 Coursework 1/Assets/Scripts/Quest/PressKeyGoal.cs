@@ -22,6 +22,11 @@ public class PressKeyGoal : Goal
         GameEvents.current.UserPressedKey += KeyPressed;
     }
 
+    public override void OnDestroy() {
+        base.OnDestroy();
+        GameEvents.current.UserPressedKey -= KeyPressed;
+    }
+
     public void KeyPressed(KeyCode keyCode) {
         if (keyCode == ExpectedKey) {
             CurrentAmount++;

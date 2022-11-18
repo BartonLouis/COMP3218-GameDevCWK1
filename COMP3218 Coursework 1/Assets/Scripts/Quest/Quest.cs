@@ -26,4 +26,10 @@ public class Quest : MonoBehaviour
         GameEvents.current.QuestCompleted(QuestId);
     }
 
+    private void OnDestroy() {
+        foreach (Goal goal in Goals) {
+            goal.OnDestroy();
+        }
+    }
+
 }

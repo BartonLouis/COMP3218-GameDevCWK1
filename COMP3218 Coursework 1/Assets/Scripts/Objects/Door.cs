@@ -7,6 +7,7 @@ public class Door : MonoBehaviour
     public int timeToDisplay = 3;
     [SerializeField]
     public Condition[] conditions;
+    public int ID = 0;
 
 
     private Animator animator;
@@ -49,6 +50,7 @@ public class Door : MonoBehaviour
         Debug.Log("Opening");
         open = true;
         animator.SetBool("Open", true);
+        GameEvents.current.OpenDoor(ID);
         GetComponent<BoxCollider2D>().enabled = false;
     }
 
@@ -56,6 +58,7 @@ public class Door : MonoBehaviour
         Debug.Log("Closing door");
         open = false;
         animator.SetBool("Open", false);
+        GameEvents.current.CloseDoor(ID);
         GetComponent<BoxCollider2D>().enabled = true;
     }
 }

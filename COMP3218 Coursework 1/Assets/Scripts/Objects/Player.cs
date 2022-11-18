@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private int numberPulling = 0;
     private float speed;
 
+
     public void giveKey() {
         hasKey = true;
         GameEvents.current.PickedUpKey();
@@ -25,11 +26,12 @@ public class Player : MonoBehaviour
     public bool carryingKey() {
         return hasKey;
     }
-
-    public void Start() {
+    public void Awake() {
         current = this;
-        rb = this.GetComponent<Rigidbody2D>();
-        animator = this.GetComponent<Animator>();
+    }
+    public void Start() {
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         speed = defaultSpeed;
         
     }
