@@ -312,7 +312,7 @@ MonoBehaviour:
     m_CachedPref: 50
     m_ControlHash: 1964396721
     m_PrefName: Preview_TilemapBrushInspector
-  m_Palette: {fileID: 6431963792386643072, guid: 1725f16d7c4f3e74b8593ad1fc50d7e4,
+  m_Palette: {fileID: 4279903311683482595, guid: 1a1f119e82f063d46bc9cd6edef95e18,
     type: 3}
   m_DrawGridGizmo: 1
   m_DrawGizmos: 0
@@ -537,13 +537,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Objects
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Objects
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\chris\Documents\GitHub\COMP3218-GameDevCWK1\COMP3218
     Coursework 1
@@ -551,9 +551,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 16670000
-    m_LastClickedID: 26390
-    m_ExpandedIDs: 000000006a6400006c6400006e6400007064000072640000786400007a6400009c760000e07a00004a7f0000d87f0000e885000000ca9a3b
+    m_SelectedIDs: ce630000
+    m_LastClickedID: 25550
+    m_ExpandedIDs: 0000000080630000826300008463000086630000886300008a6300008c6300008e6300009063000092630000946300009663000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -581,7 +581,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000006a6400006c6400006e64000070640000726400007464000076640000786400007a640000
+    m_ExpandedIDs: 0000000080630000826300008463000086630000886300008a6300008c6300008e63000090630000926300009463000096630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -612,18 +612,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000a8650000d2610000ea6f0000547a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Door
-      m_OriginalName: Door
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 26404
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_CreateAssetUtility:
@@ -673,7 +673,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 193.20001
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -711,9 +711,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 5c88ffff
-      m_LastClickedID: -30628
-      m_ExpandedIDs: 8488ffff6a8cffff788effff9896ffff44aeffffa6bcffff62cfffff6eecffffc6f0ffffc2f2ffff50f3ffff2af8ffffacfaffff606700003a6800005886000004a90000e2ab0000eaae000036b00000b6b00000
+      m_SelectedIDs: 4eb10000
+      m_LastClickedID: 45390
+      m_ExpandedIDs: 08bdffff88c6ffff9acaffff6cd3ffff32d5ffff46d8ffffece2ffff38e8ffffaaeaffffd0f3ffff64f8ffff16f9ffff2cfbffff2068000092a00000f8a70000b4a900006caa000010ab0000dead00004aaf000086b10000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -869,7 +869,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       floating: 0
       collapsed: 0
-      displayed: 0
+      displayed: 1
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -985,9 +985,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.5185604, y: 5.5287056, z: 0.21875042}
+    m_Target: {x: 14.186413, y: 12.379186, z: -0.2006948}
     speed: 2
-    m_Value: {x: 5.5185604, y: 5.5287056, z: 0.21875042}
+    m_Value: {x: 14.186413, y: 12.379186, z: -0.2006948}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1038,9 +1038,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10.847606
+    m_Target: 20.311508
     speed: 2
-    m_Value: 10.847606
+    m_Value: 20.311508
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1127,7 +1127,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
