@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
@@ -33,5 +34,10 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
         paused = false;
         animator.SetBool("Paused", false);
+    }
+
+    public void MainMenu() {
+        UnPause();
+        SceneManager.LoadScene("MainMenu");
     }
 }
