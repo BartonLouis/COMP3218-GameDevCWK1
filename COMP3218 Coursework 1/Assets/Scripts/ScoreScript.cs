@@ -24,7 +24,7 @@ public class ScoreScript : MonoBehaviour
         score = StateScoreController.globalScore;
         }
 
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Time: " + score;
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class ScoreScript : MonoBehaviour
     {
        timer = 0f;
        score++;
-       scoreText.text = "Score: " + score;
+       scoreText.text = "Time: " + score;
        StateScoreController.globalScore = score;
     }
     }
