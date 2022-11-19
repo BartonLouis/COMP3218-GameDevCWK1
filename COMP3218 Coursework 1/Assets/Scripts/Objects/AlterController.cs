@@ -13,8 +13,7 @@ public class AlterController : MonoBehaviour
     public int ID = 0;
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (pushable != null) {
             float distance = (this.transform.position + offset - pushable.transform.position - pushable.baseOffset).magnitude;
             if (distance < 0.3 && !activated) {
@@ -34,7 +33,14 @@ public class AlterController : MonoBehaviour
             pushable = queue[0];
             queue.RemoveAt(0);
             pushable.setGoal(this);
+        } else if (activated) {
+            activated = false;
+            GameEvents.current.DeActivateAlter(this);
+            foreach (RuneController rune in runes) {
+                rune.Deactivate();
+            }
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -48,7 +54,7 @@ public class AlterController : MonoBehaviour
 
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (pushable != null) {
+        if (collision.CompareTag("PushableObject") && pushable == collision.GetComponent<PushableObject>()) {
             pushable.removeGoal();
             pushable = null;
         }
