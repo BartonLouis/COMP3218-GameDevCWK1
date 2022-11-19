@@ -54,7 +54,7 @@ public class AlterController : MonoBehaviour
 
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (pushable != null) {
+        if (collision.CompareTag("PushableObject") && pushable == collision.GetComponent<PushableObject>()) {
             pushable.removeGoal();
             pushable = null;
         }

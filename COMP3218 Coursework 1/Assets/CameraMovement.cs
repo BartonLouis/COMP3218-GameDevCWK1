@@ -16,18 +16,24 @@ public class CameraMovement : MonoBehaviour
     public Room currentRoom;
     private Room previousRoom;
     public float moveSpeed = 2;
+    public float zoomTime = 1f;
     private CameraMode currentMode;
     private Vector3 goalPos;
+    private float goalSize;
 
 
     private void Start() {
         current = this;
+        goalSize = Camera.main.orthographicSize;
     }
 
     public void SetRoom(Room room) {
         previousRoom = currentRoom;
         currentRoom = room;
         currentMode = room.CameraMode;
+        if (currentRoom.CameraMode != CameraMode.Free) {
+            goalSize = 2 + currentRoom.GetComponent<BoxCollider2D>().size.y / 2;
+        }
     }
 
     public void UnSetRoom(Room room) {
@@ -38,6 +44,10 @@ public class CameraMovement : MonoBehaviour
                 currentRoom = previousRoom;
                 previousRoom = null;
                 currentMode = currentRoom.CameraMode;
+                goalSize = 2 + currentRoom.GetComponent<BoxCollider2D>().size.y / 2;
+                if (currentRoom.CameraMode != CameraMode.Free) {
+                    goalSize = 2 + currentRoom.GetComponent<BoxCollider2D>().size.y / 2;
+                }
             }
         }
     }
@@ -49,7 +59,7 @@ public class CameraMovement : MonoBehaviour
         } else if (currentMode == CameraMode.Average) {
             Vector3 p1 = Player.current.transform.position;
             Vector3 p2 = currentRoom.transform.position;
-            goalPos = new Vector3((p1.x + p2.x) / 2, (p1.y + p2.y) / 2, transform.position.z);
+            goalPos = new Vector3((p1.x + p2.x) / 2, p2.y, transform.position.z);
         } else if (currentMode == CameraMode.Free) {
             goalPos = new Vector3(Player.current.transform.position.x, Player.current.transform.position.y, transform.position.z);
         }
@@ -59,5 +69,14 @@ public class CameraMovement : MonoBehaviour
         } else {
             this.transform.position += (goalPos - this.transform.position).normalized * Time.deltaTime * distance * moveSpeed;
         }
+        if (currentRoom.CameraMode != CameraMode.Free) {
+            distance = goalSize - Camera.main.orthographicSize;
+            if (Mathf.Abs(distance) < 0.01) {
+                Camera.main.orthographicSize = goalSize;
+            } else {
+                Camera.main.orthographicSize += (distance / zoomTime) * Time.deltaTime;
+            }
+        }
+
     }
 }
