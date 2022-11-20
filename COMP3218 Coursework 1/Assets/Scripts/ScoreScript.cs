@@ -40,4 +40,8 @@ public class ScoreScript : MonoBehaviour
        StateScoreController.globalScore = score;
     }
     }
+    public void decrementScore(){
+        Debug.Log("Decrementing Score");
+        score-=10;
+    }
 }
