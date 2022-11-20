@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PushableObject
+  - Urn
+  - Urn1
   layers:
   - Default
   - TransparentFX

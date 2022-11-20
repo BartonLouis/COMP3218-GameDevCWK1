@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class timeUrn : MonoBehaviour
 {
-    private ScoreScript scoreVal;
+    public ScoreScript scoreVal;
+    private bool canBe = false;
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E)){
-            //scoreVal.decrementScore();
-            Destroy(gameObject);
-            Destroy(GetComponent<Rigidbody>());
-            Destroy(GetComponent<BoxCollider>());
+        if(canBe == true && Input.GetKeyDown(KeyCode.E)){
+            scoreVal.decrementScore();
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (!canBe && collision.tag == "Player") {
+            canBe = true;
         }
     }
 }
