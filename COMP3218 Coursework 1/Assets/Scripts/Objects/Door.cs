@@ -15,6 +15,7 @@ public class Door : MonoBehaviour
     private bool open = false;
     private bool canBeInteracted = false;
 
+    [SerializeField] private AudioSource doorSoundEffect;
     // Start is called before the first frame update
     void Start() {
         animator = GetComponent<Animator>();
@@ -85,6 +86,7 @@ public class Door : MonoBehaviour
         Debug.Log("Opening");
         open = true;
         animator.SetBool("Open", true);
+        doorSoundEffect.Play();
         GameEvents.current.OpenDoor(ID);
         collider2.enabled = false;
     }
@@ -93,6 +95,7 @@ public class Door : MonoBehaviour
         Debug.Log("Closing door");
         open = false;
         animator.SetBool("Open", false);
+        doorSoundEffect.Play();
         GameEvents.current.CloseDoor(ID);
         collider2.enabled = true;
     }

@@ -12,6 +12,7 @@ public class AlterController : MonoBehaviour
     private bool activated = false;
     public int ID = 0;
 
+    [SerializeField] private AudioSource activateSoundEffect;
     // Update is called once per frame
     void Update() {
         if (pushable != null) {
@@ -22,6 +23,7 @@ public class AlterController : MonoBehaviour
                 foreach (RuneController rune in runes) {
                     rune.Activate();
                 }
+                activateSoundEffect.Play();
             } else if (distance >= 0.3 && activated) {
                 activated = false;
                 GameEvents.current.DeActivateAlter(this);

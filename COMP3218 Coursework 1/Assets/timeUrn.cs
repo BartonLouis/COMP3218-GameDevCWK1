@@ -6,6 +6,8 @@ public class timeUrn : MonoBehaviour
 {
     public ScoreScript scoreVal;
     private bool canBe = false;
+    [SerializeField] private AudioSource ceramicSoundEffect;
+    [SerializeField] private AudioSource coinSoundEffect;
 
     void Update()
     {
@@ -18,6 +20,10 @@ public class timeUrn : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (!canBe && collision.tag == "Player") {
             canBe = true;
+             ceramicSoundEffect.Play();
+             coinSoundEffect.Play();
+        }
+           
         }
     }
-}
+   

@@ -15,7 +15,7 @@ public class Chest : MonoBehaviour
     private Player player;
     private bool open = false;
     private bool canBeOpened = false;
-
+    [SerializeField] private AudioSource lootSoundEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +38,7 @@ public class Chest : MonoBehaviour
         player.giveKey();
         pickedUpKeyText.enabled = true;
         GameEvents.current.PickedUpKey();
+        lootSoundEffect.Play();
         StartCoroutine(DisableText());
     }
 

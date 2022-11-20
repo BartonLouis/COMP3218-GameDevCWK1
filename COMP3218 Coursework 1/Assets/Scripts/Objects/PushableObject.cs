@@ -14,6 +14,7 @@ public class PushableObject : MonoBehaviour
     private bool canBePulled = false;
     private bool beingPulled = false;
 
+    [SerializeField] private AudioSource stoneSoundEffect;
     private void Start() {
         player = Player.current;
     }
@@ -21,6 +22,7 @@ public class PushableObject : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Player") {
             canBePulled = true;
+            stoneSoundEffect.Play();
         }
     }
 
@@ -42,6 +44,7 @@ public class PushableObject : MonoBehaviour
     private void startPulling() {
         beingPulled = true;
         player.SetSpeed(moveSpeed);
+        stoneSoundEffect.Play();
         lineRenderer.enabled = true;
     }
 
@@ -78,4 +81,5 @@ public class PushableObject : MonoBehaviour
     public void removeGoal() {
         this.goal = null;
     }
+
 }
