@@ -9,7 +9,7 @@ public class LevelComplete : MonoBehaviour
     public TextMeshProUGUI LevelCompleteText;
     public int timeToDisplay = 3;
     public string nextLevel = "MainMenu";
-
+    [SerializeField] private AudioSource levelSoundEffect;
     private void Start() {
         LevelCompleteText.enabled = false;
     }
@@ -17,6 +17,7 @@ public class LevelComplete : MonoBehaviour
         // Here you would load the next level
         Debug.Log("Level complete!");
         LevelCompleteText.enabled = true;
+        levelSoundEffect.Play();
         StartCoroutine(DisableText());
     }
 
