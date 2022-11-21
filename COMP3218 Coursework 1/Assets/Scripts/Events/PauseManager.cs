@@ -9,6 +9,7 @@ public class PauseManager : MonoBehaviour
     public static bool paused = false;
     public Animator animator;
 
+    [SerializeField] private AudioSource pauseSoundEffect;
     private void Start() {
         UnPause();
     }
@@ -25,6 +26,7 @@ public class PauseManager : MonoBehaviour
 
     public void Pause() {
         Debug.Log("Pausing!");
+        pauseSoundEffect.Play();
         animator.SetBool("Paused", true);
         Time.timeScale = 0f;
         paused = true;
