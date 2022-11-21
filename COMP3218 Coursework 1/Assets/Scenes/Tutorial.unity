@@ -79267,7 +79267,7 @@ PrefabInstance:
     - target: {fileID: 7573142612645906727, guid: c991576c69d775f478c14318e4e4e64a,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: Welcome to the Tutorial Level for <Insert Name Here>!
+      value: Welcome to the Tutorial Level for SR Dungeon!
       objectReference: {fileID: 0}
     - target: {fileID: 7573142612645906727, guid: c991576c69d775f478c14318e4e4e64a,
         type: 3}
