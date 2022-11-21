@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClickSound : MonoBehaviour
 {
-     [SerializeField] private AudioSource clickSoundEffect;
+     [SerializeField] public AudioSource clickSoundEffect;
     // Start is called before the first frame update
     public void playSound(){
     

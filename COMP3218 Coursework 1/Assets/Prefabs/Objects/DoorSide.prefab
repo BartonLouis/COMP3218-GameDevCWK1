@@ -138,7 +138,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 3}
+  m_Size: {x: 0.25, y: 4.5}
   m_EdgeRadius: 0
 --- !u!114 &895493606778486405
 MonoBehaviour:
@@ -162,6 +162,7 @@ MonoBehaviour:
   ID: 1
   allRequirements: 1
   collider2: {fileID: 895493606778486409}
+  doorSoundEffect: {fileID: 0}
 --- !u!95 &895493606778486404
 Animator:
   serializedVersion: 4
