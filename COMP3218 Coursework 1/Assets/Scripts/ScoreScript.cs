@@ -43,5 +43,8 @@ public class ScoreScript : MonoBehaviour
     public void decrementScore(){
         Debug.Log("Decrementing Score");
         score-=10;
+        if (score < 0){
+            score = 0;
+        }
     }
 }
